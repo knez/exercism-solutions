@@ -5,7 +5,7 @@
 
 namespace reverse_string {
 
-inline std::string reverse_string(std::string str)
+inline std::string reverse_string(const std::string& str)
 {
     return std::string(str.rbegin(), str.rend());
 }
