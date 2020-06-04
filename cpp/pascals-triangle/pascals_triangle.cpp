@@ -2,24 +2,25 @@
 
 namespace pascals_triangle {
 
-int pascal(int row, int col)
-{
-    if (col == 1) return 1;
-    if (row == 1) return 0;
-    return pascal(row - 1, col - 1) + pascal(row - 1, col);
-}
-
 std::vector<std::vector<int>> generate_rows(int rows)
 {
     std::vector<std::vector<int>> triangle;
 
-    for (int i = 1; i <= rows; i++)
+    for (int i = 0; i < rows; i++)
     {
         std::vector<int> row;
-        for (int j = 1; j <= i; j++)
+        for (int j = 0; j <= i; j++)
         {
-            int num = pascal(i, j);
-            row.push_back(num);
+            if (j == 0 || j == i)
+            {
+                row.push_back(1);   // edge
+            }
+            else
+            {
+                auto prev = triangle[i - 1];
+                int num = prev[j - 1] + prev[j];
+                row.push_back(num);
+            }
         }
         triangle.push_back(row);
     }    
