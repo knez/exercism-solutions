@@ -6,21 +6,15 @@ std::vector<std::vector<int>> generate_rows(int rows)
 {
     std::vector<std::vector<int>> triangle;
 
-    for (int i = 0; i < rows; i++)
+    for (int i = 1; i <= rows; i++)
     {
         std::vector<int> row;
-        for (int j = 0; j <= i; j++)
+        int num = 1; // edge
+        for (int j = 1; j <= i; j++)
         {
-            if (j == 0 || j == i)
-            {
-                row.push_back(1);   // edge
-            }
-            else
-            {
-                auto prev = triangle[i - 1];
-                int num = prev[j - 1] + prev[j];
-                row.push_back(num);
-            }
+            row.push_back(num);
+            // compute next binomial coefficient
+            num = (num * (i - j) / j);
         }
         triangle.push_back(row);
     }    
