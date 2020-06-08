@@ -6,7 +6,7 @@ namespace sieve {
 
 std::vector<int> primes(int n)
 {
-    std::vector<bool> sieve(n, true);
+    std::vector<bool> sieve(n + 1, true);
 
     int max = sqrt(n);
     for (int p = 2; p <= max; p++)
