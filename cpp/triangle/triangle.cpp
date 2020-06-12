@@ -21,10 +21,10 @@ flavor kind(double a, double b, double c)
     if (double_equals(a, b) && double_equals(a, c))
         return flavor::equilateral;
    
-    if (!double_equals(a, b) && !double_equals(b, c) && !double_equals(a, c))
-        return flavor::scalene;
+    if (double_equals(a, b) || double_equals(b, c) || double_equals(a, c))
+        return flavor::isosceles;
     else
-        return flavor::isosceles; 
+        return flavor::scalene;
 }
 
 }  // namespace triangle
