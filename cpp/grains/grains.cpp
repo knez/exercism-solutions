@@ -1,16 +1,18 @@
 #include "grains.h"
 
+#include <limits>
+
 namespace grains {
 
-unsigned long long total()
+uint64_t total()
 {
-    // sum of a geometric series
-    return (2ULL << 63) - 1;
+    // sum of a geometric series, 2^64 - 1
+    return std::numeric_limits<uint64_t>::max();
 }
 
-unsigned long long square(int pos)
+uint64_t square(int pos)
 {
-    return 1ULL << (pos - 1);
+    return (uint64_t) 1 << (pos - 1);
 }
 
 }  // namespace grains

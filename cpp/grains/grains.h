@@ -1,10 +1,12 @@
 #if !defined(GRAINS_H)
 #define GRAINS_H
 
+#include <cstdint>
+
 namespace grains {
 
-unsigned long long total();
-unsigned long long square(int pos);
+uint64_t total();
+uint64_t square(int pos);
 
 }  // namespace grains
 
