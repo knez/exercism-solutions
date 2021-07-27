@@ -1,10 +1,8 @@
 class Matrix:
     def __init__(self, matrix_string):
         """Parse matrix."""
-        rows = matrix_string.splitlines()
-        self.matrix = [
-            [int(n) for n in row.split()] for row in rows
-        ]
+        self.matrix = [[int(n) for n in row.split()] 
+                        for row in matrix_string.splitlines()]
 
     def row(self, index):
         return self.matrix[index - 1]
